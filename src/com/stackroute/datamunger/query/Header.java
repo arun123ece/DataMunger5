@@ -5,7 +5,7 @@ import java.util.HashMap;
 //header class containing a Collection containing the headers
 public class Header extends HashMap<String, Integer> {
 	
-	public String header;
+	private String header;
 	
 	public Header() {
 		
@@ -15,7 +15,6 @@ public class Header extends HashMap<String, Integer> {
 	}
 
 	public String[] getheaders() {
-		String[] finalheader = header.split(",");
-		return finalheader;
+		return header.split(",");
 	}
 }

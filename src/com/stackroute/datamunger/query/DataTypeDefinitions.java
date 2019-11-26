@@ -18,6 +18,10 @@ public class DataTypeDefinitions {
 
 	private String[] headerNames;
 	private String[] datatypes;
+	
+	public DataTypeDefinitions() {
+		
+	}
 
 	public void setDatatypes(String[] datatypes) {
 		this.datatypes = datatypes;
@@ -28,7 +32,7 @@ public class DataTypeDefinitions {
 	}
 
 	public String[] getDataTypes() {
-		int count = headerNames.length;
+		final int count = headerNames.length;
 		String[] datatypesArray = new String[count];
 		for (int index = 0; index < count; index++) {
 			try {
@@ -44,12 +48,12 @@ public class DataTypeDefinitions {
 
 		try {
 			// checking for Integer
-			Integer tempdata = Integer.parseInt(input);
+			final Integer tempdata = Integer.parseInt(input);
 			return tempdata.getClass().getName();
 		} catch (Exception e) {
 			try {
 				java.util.Date date1 = null;
-				String tempdata = input;
+				final String tempdata = input;
 
 				// checking for date format dd/mm/yyyy
 
@@ -96,7 +100,7 @@ public class DataTypeDefinitions {
 										} else {
 											// checking for floating point
 											// numbers
-											Double date2 = Double.parseDouble(tempdata);
+											final Double date2 = Double.parseDouble(tempdata);
 											return date2.getClass().getName();
 										}
 									}
@@ -108,9 +112,9 @@ public class DataTypeDefinitions {
 					}
 				}
 			} catch (Exception e1) {
-				String tempdata = input;
+				final String tempdata = input;
 				if (tempdata.trim().equals("")) {
-					Object object = new Object();
+					final Object object = new Object();
 					// System.out.println(object.getClass().getName());
 					return object.getClass().getName();
 				} else {

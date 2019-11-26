@@ -8,6 +8,10 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 public class JsonWriter {
+	
+	public JsonWriter() {
+		
+	}
 	/*
 	 * this method will write the resultSet object into a JSON file. On successful
 	 * writing, the method will return true, else will return false

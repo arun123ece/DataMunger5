@@ -5,6 +5,8 @@ import java.util.List;
 
 public class QueryParser {
 
+	public QueryParser() {
+	}
 
 	/*
 	 * this method will parse the queryString and will return the object of

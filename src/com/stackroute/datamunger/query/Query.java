@@ -9,6 +9,9 @@ import com.stackroute.datamunger.reader.CsvQueryProcessor;
 
 public class Query {
 
+	public Query() {
+		
+	}
 	/*
 	 * This method will: 
 	 * 1.parse the query and populate the QueryParameter object

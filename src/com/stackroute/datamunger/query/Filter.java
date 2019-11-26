@@ -7,6 +7,10 @@ import com.stackroute.datamunger.query.parser.Restriction;
 
 //this class contains methods to evaluate expressions
 public class Filter {
+	
+	public Filter() {
+		
+	}
 
 	/*
 	 * the evaluateExpression() method of this class is responsible for
@@ -21,39 +25,39 @@ public class Filter {
 
 	public Boolean evaluateExpression(Header header, RowDataTypeDefinitions dataType, String[] data,
 			List<Restriction> r, List<String> logicalOperators) {
-		List<Boolean> list = new ArrayList<>();
+		final List<Boolean> list = new ArrayList<>();
 		for (int i = 0; i < r.size(); i++) {
 			if (r.get(i).getCondition().equals(">")) {
-				int conditionValue = Integer.parseInt(r.get(i).getPropertyValue().trim());
-				int rowDataValue = Integer.parseInt(data[header.get(r.get(i).getPropertyName().trim())]);
+				final int conditionValue = Integer.parseInt(r.get(i).getPropertyValue().trim());
+				final int rowDataValue = Integer.parseInt(data[header.get(r.get(i).getPropertyName().trim())]);
 				list.add(conditionIsGreaterthan(rowDataValue, conditionValue));
 			}
 			if (r.get(i).getCondition().equals("<")) {
-				int conditionValue = Integer.parseInt(r.get(i).getPropertyValue().trim());
-				int rowDataValue = Integer.parseInt(data[header.get(r.get(i).getPropertyName().trim())]);
+				final int conditionValue = Integer.parseInt(r.get(i).getPropertyValue().trim());
+				final int rowDataValue = Integer.parseInt(data[header.get(r.get(i).getPropertyName().trim())]);
 				list.add(conditionIsLessthan(rowDataValue, conditionValue));
 			}
 			if (r.get(i).getCondition().equals("<=")) {
-				int conditionValue = Integer.parseInt(r.get(i).getPropertyValue().trim());
-				int rowDataValue = Integer.parseInt(data[header.get(r.get(i).getPropertyName().trim())]);
+				final int conditionValue = Integer.parseInt(r.get(i).getPropertyValue().trim());
+				final int rowDataValue = Integer.parseInt(data[header.get(r.get(i).getPropertyName().trim())]);
 				list.add(conditionIsLessthanOrEqual(rowDataValue, conditionValue));
 			}
 			if (r.get(i).getCondition().equals(">=")) {
-				int conditionValue = Integer.parseInt(r.get(i).getPropertyValue().trim());
-				int rowDataValue = Integer.parseInt(data[header.get(r.get(i).getPropertyName().trim())]);
+				final int conditionValue = Integer.parseInt(r.get(i).getPropertyValue().trim());
+				final int rowDataValue = Integer.parseInt(data[header.get(r.get(i).getPropertyName().trim())]);
 				list.add(conditionIsGreaterthanOrEqual(rowDataValue, conditionValue));
 			}
 			if (r.get(i).getCondition().equals("!=")) {
 				if (dataType.get(header.get(r.get(i).getPropertyName().trim())).equals("java.lang.String")) {
-					String conditionValue = r.get(i).getPropertyValue().trim();
-					String rowDataValue = data[header.get(r.get(i).getPropertyName().trim())];
+					final String conditionValue = r.get(i).getPropertyValue().trim();
+					final String rowDataValue = data[header.get(r.get(i).getPropertyName().trim())];
 					list.add(conditionIsNotEqualTo(rowDataValue, conditionValue));
 				}
 			}
 			if (r.get(i).getCondition().equals("=")) {
 				if (dataType.get(header.get(r.get(i).getPropertyName().trim())).equals("java.lang.String")) {
-					String conditionValue = r.get(i).getPropertyValue().trim();
-					String rowDataValue = data[header.get(r.get(i).getPropertyName().trim())];
+					final String conditionValue = r.get(i).getPropertyValue().trim();
+					final String rowDataValue = data[header.get(r.get(i).getPropertyName().trim())];
 					list.add(conditionIsNotEqualTo(rowDataValue, conditionValue));
 				}
 			}
@@ -79,7 +83,7 @@ public class Filter {
 			}
 		}
 
-		StringBuffer conditionalstring=new StringBuffer();
+		final StringBuffer conditionalstring=new StringBuffer();
 		for (int final_checker = 0; final_checker < final_combine.length;final_checker++) {
 			conditionalstring.append(final_combine[final_checker]);
 			if(!(final_checker+1==final_combine.length))
@@ -88,7 +92,7 @@ public class Filter {
 			}
 		}
 
-		String[] orspliter=conditionalstring.toString().split("or");
+		final String[] orspliter=conditionalstring.toString().split("or");
 		int it_temp=0;
 		Boolean indicator=false;
 		for(int iterate=0;iterate<orspliter.length;iterate++)

@@ -18,6 +18,10 @@ import com.stackroute.datamunger.query.parser.Restriction;
 
 
 public class CsvQueryProcessor implements QueryProcessingEngine {
+	
+	public CsvQueryProcessor() {
+		
+	}
 	/*
 	 * This method will take QueryParameter object as a parameter which contains
 	 * the parsed query and will process and populate the ResultSet

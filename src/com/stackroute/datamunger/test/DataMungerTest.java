@@ -26,6 +26,10 @@ import com.stackroute.datamunger.query.parser.Restriction;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class DataMungerTest {
+	
+	public DataMungerTest() {
+		
+	}
 
 	private static Query query;
 
